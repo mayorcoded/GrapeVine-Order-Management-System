@@ -9,9 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderResourceAssembler extends ResourceAssembler<Order, OrderResource>{
 
+    @Autowired
     private EntityLinks entityLinks;
 
-    private static final String UPDATE_REL = "updates";
+    private static final String UPDATE_REL = "update";
     private static final String DELETE_REL = "delete";
 
     @Override
