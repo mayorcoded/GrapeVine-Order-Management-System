@@ -9,11 +9,11 @@ public class Order implements Identifiable{
 
 
 
-    public String getDesciption() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDesciption(String desciption) {
+    public void setDescription(String desciption) {
         this.description = desciption;
     }
 
@@ -25,12 +25,20 @@ public class Order implements Identifiable{
         this.costInCents = costInCents;
     }
 
-    public boolean isCompleted() {
+    public boolean isComplete() {
         return isCompleted;
     }
 
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
+    public void setComplete(boolean completed) {
+        this.isCompleted = completed;
+    }
+
+    public void markComplete(){
+        setComplete(true);
+    }
+
+    public void markIncomplete(){
+        setComplete(false);
     }
 
     @Override
