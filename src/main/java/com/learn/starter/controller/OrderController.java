@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 
 @RestController
@@ -36,11 +37,12 @@ public class OrderController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<OrderResource> createOrder(@RequestBody Order order){
+        System.out.println(order.toString());
         Order createdOrder = repository.create(order);
         return new ResponseEntity<>(assembler.toResource(createdOrder), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/{id", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<OrderResource> findOrderById(@PathVariable Long id){
         Optional<Order> order = repository.findById(id);
 
